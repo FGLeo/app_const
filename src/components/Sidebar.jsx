@@ -135,6 +135,7 @@ const secondarylinksArray = [
 //#region STYLED COMPONENTS
 const Container = styled.div`
   color: ${(props) => props.theme.text};
+  height: 100vh;
   background: ${(props) => props.theme.bg};
   position: sticky;
   padding-top: 20px;
