@@ -245,8 +245,8 @@ const Container = styled.div`
               width: 0;
               height: 0;
               &:checked + .slider:before {
-                left: 4px;
-                content: "🌑";
+                left: 0px;
+                content: "⚫";
                 transform: translateX(26px);
               }
             }
@@ -263,7 +263,7 @@ const Container = styled.div`
               transition: 0.4s;
               &::before {
                 position: absolute;
-                content: "☀️";
+                content: "⚪";
                 height: 0px;
                 width: 0px;
                 left: -10px;
