@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
+console.log("Renderizando MyRoutes...");
 import { MyRoutes } from "./routers/routes";
 import styled from "styled-components";
 import { BrowserRouter } from "react-router-dom";
@@ -12,6 +13,7 @@ function App() {
   const [theme, setTheme] = useState("light");
   const themeStyle = theme === "light" ? Light : Dark;
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("auth") === "true"
   );
@@ -21,7 +23,8 @@ function App() {
     <ThemeContext.Provider value={{ setTheme, theme }}>
       <ThemeProvider theme={themeStyle}>
         <BrowserRouter>
-          <Container className={sidebarOpen ? "sidebarState active" : ""}>
+        <Container className={sidebarOpen ? "sidebarState active" : "sidebarState"}>
+
             {/* Muestra Sidebar solo si el usuario está autenticado */}
             {isAuthenticated && (
               <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
