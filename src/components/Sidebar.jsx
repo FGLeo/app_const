@@ -8,13 +8,23 @@ import {
   AiOutlineSetting,
 } from "react-icons/ai";
 import { MdOutlineAnalytics, MdLogout } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../App";
+
 export function Sidebar({ sidebarOpen, setSidebarOpen }) {
+  const navigate = useNavigate(); // Hook para redirección
+
+  const handleLogout = () => {
+    localStorage.removeItem("auth"); // Elimina la autenticación
+    navigate("/singup"); // Redirige a la pantalla de login
+    window.location.reload(); // Refresca la página para limpiar estado
+  };
+
   const ModSidebaropen = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
   const { setTheme, theme } = useContext(ThemeContext);
   const CambiarTheme = () => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
@@ -48,6 +58,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
           <NavLink
             to={to}
             className={({ isActive }) => `Links${isActive ? ` active` : ``}`}
+            onClick={label === "Salir" ? handleLogout : undefined} // Solo en "Salir"
           >
             <div className="Linkicon">{icon}</div>
             {sidebarOpen && <span>{label}</span>}
@@ -78,6 +89,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
     </Container>
   );
 }
+
 //#region Data links
 const linksArray = [
   {
@@ -110,12 +122,12 @@ const secondarylinksArray = [
   {
     label: "Configuración",
     icon: <AiOutlineSetting />,
-    to: "/null",
+    to: "/configuracion",
   },
   {
     label: "Salir",
     icon: <MdLogout />,
-    to: "/null",
+    to: "/singup",
   },
 ];
 //#endregion

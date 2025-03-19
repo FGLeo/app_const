@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Form from "../components/Form"; // Importación correcta
+import Form from "../components/Form"; 
 
 export function Singup({ setIsAuthenticated }) { 
-  const [usuario, setUsuario] = useState("");  // Estado para usuario
-  const [password, setPassword] = useState("");  // Estado para password
+  const [usuario, setUsuario] = useState("");  
+  const [password, setPassword] = useState("");  
   const navigate = useNavigate();
 
   const handleSingup = (e) => {
@@ -14,8 +14,8 @@ export function Singup({ setIsAuthenticated }) {
     // Simulación de autenticación
     if (usuario === "admin" && password === "1234") {
       localStorage.setItem("auth", "true"); // Guarda sesión
-      setIsAuthenticated(true);
-      navigate("/home"); // Redirige al Home
+      setIsAuthenticated(true); // Cambia estado global de autenticación
+      navigate("/"); // Redirige a la aplicación
     } else {
       alert("Credenciales incorrectas");
     }
@@ -28,7 +28,7 @@ export function Singup({ setIsAuthenticated }) {
         setUsuario={setUsuario} 
         password={password} 
         setPassword={setPassword} 
-        handleLogin={handleSingup}  // Este prop debe llamarse igual en Form.jsx
+        handleLogin={handleSingup}  
       />
     </SingupContainer>
   );

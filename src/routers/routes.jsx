@@ -9,7 +9,7 @@ import {Singup} from "../pages/singup"
 export function MyRoutes({ setIsAuthenticated }) {
   return (
     <Routes>
-      <Route path="/" element={<Singup setIsAuthenticated={setIsAuthenticated} />} />
+      <Route path="/singup" element={<Singup setIsAuthenticated={setIsAuthenticated} />} />
       <Route path="/home" element={<Home />} />
       <Route path="/productos" element={<Productos />} />
       <Route path="/estadisticas" element={<Estadisticas />} />
