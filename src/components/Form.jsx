@@ -5,11 +5,12 @@ const Form = () => {
   return (
     <StyledWrapper>
       <div className="form-container">
-        <p className="title">Login</p>
+        <p className="title">Inicio de Sesión</p>
         <form className="form">
           <div className="input-group">
             <label htmlFor="username">Usuario</label>
-            <input type="text" 
+            <input 
+            type="text" 
             placeholder="Usuario" 
             value={usuario} 
             onChange={(e) => setUsuario(e.target.value)} 
@@ -19,10 +20,10 @@ const Form = () => {
           <div className="input-group">
             <label htmlFor="password">Contraseña</label>
             <input 
-            type="text" 
-            placeholder="Usuario" 
-            value={usuario} 
-            onChange={(e) => setUsuario(e.target.value)} 
+            type="password" 
+            placeholder="Contraseña" 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} 
             required 
             />
             <div className="forgot">

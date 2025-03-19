@@ -4,17 +4,17 @@ import { Estadisticas } from "../pages/Estadisticas";
 import { Productos } from "../pages/Productos";
 import {Diagramas} from "../pages/Diagramas";
 import {Reportes} from "../pages/Reportes";
-export function MyRoutes() {
+import {Login} from "../pages/login";
+
+export function MyRoutes({ setIsAuthenticated }) {
   return (
-   
-     
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/estadisticas" element={<Estadisticas />} />
-        <Route path="/diagramas" element={<Diagramas />} />
-        <Route path="/reportes" element={<Reportes />} />
-      </Routes>
-    
+    <Routes>
+      <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/productos" element={<Productos />} />
+      <Route path="/estadisticas" element={<Estadisticas />} />
+      <Route path="/diagramas" element={<Diagramas />} />
+      <Route path="/reportes" element={<Reportes />} />
+    </Routes>
   );
 }
